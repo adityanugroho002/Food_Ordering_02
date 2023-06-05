@@ -1,5 +1,4 @@
 import csv
-import os
 
 namefile = 'daftar_menu.csv'
 
