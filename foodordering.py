@@ -25,7 +25,7 @@ def programkasir():
     totalharga = 0
     listjmlpesan= []
     print ("")
-    print ("Masukkan KODE berikut pada Kode Makanan apabila selesai memilih menu:")
+    print ("Masukkan KODE berikut pada 'Kode Makanan dipesan' apabila selesai memilih menu:")
     print ("Input (1) untuk TOTAL PEMBAYARAN")
     print ("Input (2) untuk Keluar dari Program Kasir")
     print ("")
@@ -90,3 +90,4 @@ while True:
         print("===============CACA RESTO================")
         print("=========================================")
         daftarmenu()
+
