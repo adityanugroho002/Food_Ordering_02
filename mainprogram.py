@@ -69,9 +69,9 @@ def programkasir():
                 totalharga += hargamenu
                 print (i[1],"\t Rp",hargamenu)
                 entry = [i[1], jml_pesan,hargamenu]
-
                 listjmlpesan.append(entry)
                 print (listjmlpesan)
+                estimasi = int(i[3])*jml_pesan
                 
         if pilihanmenu == "1":
             match += 1
@@ -175,7 +175,7 @@ def programkasir():
                     for pesanan in listjmlpesan:
                         print (pesanan)
                     print("Harga    : Rp", totalpajak)
-                    print(f"silahkan ambil pesanan anda dalam {jml_pesan*10} menit")
+                    print(f"silahkan ambil pesanan anda dalam {estimasi} menit")
                     print("              Pajak 10%            ")
                     print("Pembayaran dilakukan secara tunai  ")
                     print("====== Selamat Datang Kembali======")
@@ -192,7 +192,7 @@ def programkasir():
                     for pesanan in listjmlpesan:
                         print (pesanan)
                     print("Harga    : Rp", totalpajak)
-                    print(f"silahkan ambil pesanan anda dalam {jml_pesan*10} menit")
+                    print(f"silahkan ambil pesanan anda dalam {estimasi} menit")
                     print("              Pajak 10%            ")
                     print("Silakan transfer ke rekening")
                     print("BRI         : 213681212")
