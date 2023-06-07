@@ -50,6 +50,7 @@ def programkasir():
                 
         if pilihanmenu == "1":
             match += 1
+            pajak = totalharga*1.1
             print ("Total Pembelian: Rp ", totalharga)
             print("\n===================================")
             print("===============N O T A=============")
@@ -60,7 +61,7 @@ def programkasir():
             print("Pesanan  :".format(len(listjmlpesan)))
             for pesanan in listjmlpesan:
                 print (pesanan)
-            print("Total    : Rp", totalharga)
+            print("Total    : Rp", pajak)
             print("====== Selamat Datang Kembali======")
             print("===================================")  
         if match == ("a"):
