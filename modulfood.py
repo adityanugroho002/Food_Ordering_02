@@ -29,7 +29,24 @@ def hitung_ongkir_menu(kecamatan, totalharga):
         print("kecamatan tidak valid.")
     
     total_biaya = ongkir + totalharga
-    return total_biaya
+    return total_biaya
+
+def metode_transfer(norek_resto, no_telepon, totalharga):
+    valid_input = False
+    while not valid_input:
+        nomor_rekening = input("Input nomor rekening tujuan: ")
+        if nomor_rekening == norek_resto or nomor_rekening == no_telepon:
+            valid_harga = False
+            while not valid_harga:
+                totalbayar = float(input("Masukkan total pembayaran: "))
+                if totalbayar == totalharga:
+                    valid_harga = True
+                    valid_input = True
+                else:
+                    print("Tidak valid")
+        else:
+            print("nomor rekening tidak valid")
+    return True
 
 def programkasir():
     with open(namefile, newline='') as filecsv:
