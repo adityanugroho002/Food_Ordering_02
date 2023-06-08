@@ -74,7 +74,14 @@ def programkasir():
         reader = csv.reader(filecsv)
         datamenu = list(reader)
     nama = str(input("Ketik Nama Anda: "))
-    nomor = int(input("Ketik Nomor WhatsApp Anda: "))
+    while True:
+        try:
+            nomor_telepon = int(input("Masukkan nomor telepon: "))
+            break
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+    print("Nomor telepon yang dimasukkan:", nomor_telepon)
+
     daftarmenu()
     totalharga = 0
     listjmlpesan= []
