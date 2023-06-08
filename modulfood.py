@@ -16,6 +16,21 @@ def daftarmenu():
                 jumlahdata = int(line_count - 1)
         print("jumlah menu : ", jumlahdata)
 
+def hitung_ongkir_menu(kecamatan, totalharga):
+    ongkir = 0
+    
+    if kecamatan == "jebres" or "banjarsari" or "laweyan" or "serengan" or "pasar kliwon":
+        ongkir = 5000
+    elif kecamatan == "mojosongo" or "grogol":
+        ongkir = 7000
+    elif kecamatan == "colomadu" or "ngemplak":
+        ongkir = 10000
+    else:
+        print("kecamatan tidak valid.")
+    
+    total_biaya = ongkir + totalharga
+    return total_biaya
+
 def programkasir():
     with open(namefile, newline='') as filecsv:
         reader = csv.reader(filecsv)
