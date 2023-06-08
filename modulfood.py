@@ -113,7 +113,6 @@ def programkasir():
             print("Jumlah orang :", orang)
             print("Harga menu   : ", totalharga)
             print("Pajak        : 10%")
-            print("Kupon        : Rp", )
             print("Total        : Rp", harga_akhir)
             print("Silahkan melakukan pembayaran")
             print("====== Selamat Datang Kembali======")
@@ -164,6 +163,22 @@ def programkasir():
                 print("====== Selamat Datang Kembali======")
                 print("===================================")
                 kecamatan.lower
+                print("")
+                print("Silahkan pilih Metode Pembayaran")
+                print("[1] Cash               ")
+                print("[2] Transfer >> BCA              : 123456789")
+                print("                Dana/Spay/Gopay  : 081328023385")
+                choice = str(input(">> "))
+                if choice == "1":
+                    print("Silahkan bayar dengan uang pas")
+                elif choice == "2":
+                    norek_resto = "123456789"
+                    no_telepon = "081328023385"
+                    totalbayar = harga_akhir                
+                    if metode_transfer(norek_resto, no_telepon, totalbayar):
+                        print("Transaksi berhasil")
+                    else:
+                        print("Transaksi gagal")
 
             elif opsi == 2:
                 pajak = totalharga*1.1
@@ -184,6 +199,22 @@ def programkasir():
                 print("Pembayaran dilakukan secara tunai  ")
                 print("====== Selamat Datang Kembali======")
                 print("===================================")
+                print("")
+                print("Silahkan pilih Metode Pembayaran")
+                print("[1] Cash               ")
+                print("[2] Transfer >> BCA              : 123456789")
+                print("                Dana/Spay/Gopay  : 081328023385")
+                choice = str(input(">> "))
+                if choice == "1":
+                    print("Silahkan bayar dengan uang pas")
+                elif choice == "2":
+                    norek_resto = "123456789"
+                    no_telepon = "081328023385"
+                    totalbayar = harga_akhir                
+                    if metode_transfer(norek_resto, no_telepon, totalbayar):
+                        print("Transaksi berhasil")
+                    else:
+                        print("Transaksi gagal")
 
             else:
                 print("Input tidak valid")
