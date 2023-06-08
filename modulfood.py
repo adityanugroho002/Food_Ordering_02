@@ -1,5 +1,6 @@
 import csv
 from tabulate import tabulate
+import random
 
 namefile = 'daftar_menu.csv'
 
@@ -30,6 +31,17 @@ def hitung_ongkir_menu(kecamatan, totalharga):
     total_biaya = ongkir + totalharga
     return total_biaya
 
+def kodekupon(kode, totalharga):
+    kupon = 0
+    if kode == "caca0214":
+        kupon = 5000
+    elif kode == "caca2728":
+        kupon = 7000
+    else:
+        kupon = 0
+    hargakupon = totalharga - kupon
+    return hargakupon
+
 def metode_transfer(norek_resto, no_telepon, totalharga):
     valid_input = False
     while not valid_input:
@@ -58,11 +70,12 @@ def programkasir():
     listjmlpesan= []
     print ("")
     print ("Masukkan KODE berikut pada 'Kode Makanan dipesan' apabila selesai memilih menu:")
-    print ("Input (1) untuk TOTAL PEMBAYARAN")
-    print ("Input (2) untuk Keluar dari Program Kasir")
+    print ("Input (1) untuk DINE IN")
+    print ("Input (2) untuk DELIVERY/TAKE AWAY")
+    print ("Input (3) untuk Keluar dari Program Kasir")
     print ("")
     pilihanmenu = input("Kode makanan dipesan: ")
-    while pilihanmenu != ("2"):
+    while pilihanmenu != ("3"):
         match = 0
         for i in datamenu:
             if pilihanmenu == i[0]:
@@ -75,27 +88,106 @@ def programkasir():
                 hargamenu = int(i[2])*jml_pesan
                 totalharga += hargamenu
                 print (i[1],"\t Rp",hargamenu)
-                menu = [i[1], jml_pesan,hargamenu]
-                
-                listjmlpesan.append(menu)
+                entry = [i[1], jml_pesan,hargamenu]
+                listjmlpesan.append(entry)
                 print (listjmlpesan)
+                estimasi = (i[3])*jml_pesan
                 
         if pilihanmenu == "1":
             match += 1
             pajak = totalharga*1.1
-            print ("Total Pembelian: Rp ", totalharga)
+            orang = int(input("Jumlah orang: "))
+            nomormeja = random.randint(1,10)
+            kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
+            harga_akhir = kodekupon(kode, pajak)
             print("\n===================================")
             print("===============N O T A=============")
             print("========C A C A - R E S T O========")
             print("===================================")
-            print("Nama     : ", nama)
-            print("No WA    : +62", nomor)
-            print("Pesanan  :".format(len(listjmlpesan)))
+            print("Nama         :", nama)
+            print("No WA        : +62", nomor)
+            print("Pesanan      :".format(len(listjmlpesan)))
             for pesanan in listjmlpesan:
                 print (pesanan)
-            print("Total    : Rp", pajak)
+            print("Nomor Meja   :", nomormeja)
+            print("Jumlah orang :", orang)
+            print("Harga menu   : ", totalharga)
+            print("Pajak        : 10%")
+            print("Kupon        : Rp", )
+            print("Total        : Rp", harga_akhir)
+            print("Silahkan melakukan pembayaran")
             print("====== Selamat Datang Kembali======")
-            print("===================================")  
+            print("===================================")
+            print("")
+            print("Silahkan pilih Metode Pembayaran")
+            print("[1] Cash               ")
+            print("[2] Transfer >> BCA              : 123456789")
+            print("                Dana/Spay/Gopay  : 081328023385")
+            choice = str(input(">> "))
+            if choice == "1":
+                print("Silahkan bayar dengan uang pas")
+            elif choice == "2":
+                norek_resto = "123456789"
+                no_telepon = "081328023385"
+                totalbayar = harga_akhir                
+                if metode_transfer(norek_resto, no_telepon, totalbayar):
+                    print("Transaksi berhasil")
+                else:
+                    print("Transaksi gagal")
+
+        elif pilihanmenu == "2":
+            match += 1
+            print("""Silahkan Pilih Menu Berikut
+            Pilih [1] untuk DELIVERY
+            Pilih [2] untuk TAKE AWAY""")
+            opsi = int(input("[1] atau [2]: "))
+            if opsi == 1:
+                alamat = str(input('Input alamat lengkap: '))
+                kecamatan = str(input("input kecamatan: "))
+                biaya_total = hitung_ongkir_menu(kecamatan, totalharga)
+                totalpajak = biaya_total*1.1
+                kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
+                harga_akhir = kodekupon(kode, totalpajak)
+                print("\n===================================")
+                print("============== N O T A ============")
+                print("======= C A C A - R E S T O =======")
+                print("===================================")
+                print("Nama     :", nama)
+                print("No WA    : +62", nomor)
+                print("Pesanan  :".format(len(listjmlpesan)))
+                for pesanan in listjmlpesan:
+                    print (pesanan)
+                print("Alamat   : ", alamat)
+                print("Harga    : Rp", harga_akhir)
+                print("              Pajak 10%            ")
+                print("Silahkan melakukan pembayaran")
+                print("====== Selamat Datang Kembali======")
+                print("===================================")
+                kecamatan.lower
+
+            elif opsi == 2:
+                pajak = totalharga*1.1
+                kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
+                harga_akhir = kodekupon(kode, pajak)
+                print("\n===================================")
+                print("===============N O T A=============")
+                print("========C A C A - R E S T O========")
+                print("===================================")
+                print("Nama     :", nama)
+                print("No WA    : +62", nomor)
+                print("Pesanan  :".format(len(listjmlpesan)))
+                for pesanan in listjmlpesan:
+                    print (pesanan)
+                print("Harga    : Rp", harga_akhir)
+                print(f"silahkan ambil pesanan anda dalam {estimasi} menit")
+                print("              Pajak 10%            ")
+                print("Pembayaran dilakukan secara tunai  ")
+                print("====== Selamat Datang Kembali======")
+                print("===================================")
+
+            else:
+                print("Input tidak valid")
+
         if match == ("a"):
             print ("Input salah, ulangi input")
         pilihanmenu = input("Kode makanan dipesan: ")
