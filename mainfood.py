@@ -5,6 +5,8 @@ while True:
     print("=====================SELAMAT DATANG=====================")
     print("=======================CACA RESTO=======================")
     print("========================================================")
+    print("=======Jl. Utara Pasar Besar No.34, Sudiroprajan,=======")
+    print("========Kec. Jebres, Kota Surakarta, Jawa Tengah========")
     print("================SILAKAN PILIH MENU BERIKUT==============")
     print("")
     print("                 Klik (1) Program Kasir                 ")
