@@ -122,7 +122,7 @@ def programkasir():
             print("========C A C A - R E S T O========")
             print("===================================")
             print("Nama         :", nama)
-            print("No WA        : +62", nomor)
+            print("No WA        : +62", nomor_telepon)
             print("Pesanan      :".format(len(listjmlpesan)))
             for pesanan in listjmlpesan:
                 print (pesanan)
@@ -169,7 +169,7 @@ def programkasir():
                 print("======= C A C A - R E S T O =======")
                 print("===================================")
                 print("Nama     :", nama)
-                print("No WA    : +62", nomor)
+                print("No WA    : +62", nomor_telepon)
                 print("Pesanan  :".format(len(listjmlpesan)))
                 for pesanan in listjmlpesan:
                     print (pesanan)
@@ -206,7 +206,7 @@ def programkasir():
                 print("========C A C A - R E S T O========")
                 print("===================================")
                 print("Nama     :", nama)
-                print("No WA    : +62", nomor)
+                print("No WA    : +62", nomor_telepon)
                 print("Pesanan  :".format(len(listjmlpesan)))
                 for pesanan in listjmlpesan:
                     print (pesanan)
