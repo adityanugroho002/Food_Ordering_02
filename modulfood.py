@@ -1,20 +1,19 @@
 import csv
+from tabulate import tabulate
 
 namefile = 'daftar_menu.csv'
 
 def daftarmenu():
+    data = []
     with open (namefile) as filecsv:
         readcsv = csv.reader (filecsv,delimiter = ',')
-        line_count = 0
-        for row in readcsv:
-            if line_count == 0:
-                print(f'menu:\n{row}')
-                line_count += 1
-            else:
-                line_count += 1
-                print(row)
-                jumlahdata = int(line_count - 1)
-        print("jumlah menu : ", jumlahdata)
+        data = list(readcsv)
+    headers = data[0]
+    tablefmt = "grid"
+    numalign = "center"
+
+    table = tabulate(data[1:], headers=headers, tablefmt=tablefmt, numalign=numalign)
+    print(table)
 
 def hitung_ongkir_menu(kecamatan, totalharga):
     ongkir = 0
