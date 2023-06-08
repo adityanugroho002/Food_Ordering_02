@@ -59,6 +59,16 @@ def metode_transfer(norek_resto, no_telepon, totalharga):
             print("nomor rekening tidak valid")
     return True
 
+def harga_pajak1(totalharga):
+    pajak = totalharga * 0.1
+    totalpajak = totalharga + pajak
+    return totalpajak
+
+def harga_pajak2(biaya_total):
+    pajak = biaya_total * 0.1
+    totalpajak = biaya_total + pajak
+    return totalpajak
+
 def programkasir():
     with open(namefile, newline='') as filecsv:
         reader = csv.reader(filecsv)
@@ -95,11 +105,11 @@ def programkasir():
                 
         if pilihanmenu == "1":
             match += 1
-            pajak = totalharga*1.1
+            totalpajak = harga_pajak1(totalharga)
             orang = int(input("Jumlah orang: "))
             nomormeja = random.randint(1,10)
             kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
-            harga_akhir = kodekupon(kode, pajak)
+            harga_akhir = kodekupon(kode, totalpajak)
             print("\n===================================")
             print("===============N O T A=============")
             print("========C A C A - R E S T O========")
@@ -144,7 +154,7 @@ def programkasir():
                 alamat = str(input('Input alamat lengkap: '))
                 kecamatan = str(input("input kecamatan: "))
                 biaya_total = hitung_ongkir_menu(kecamatan, totalharga)
-                totalpajak = biaya_total*1.1
+                totalpajak = harga_pajak2(biaya_total)
                 kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
                 harga_akhir = kodekupon(kode, totalpajak)
                 print("\n===================================")
@@ -181,9 +191,9 @@ def programkasir():
                         print("Transaksi gagal")
 
             elif opsi == 2:
-                pajak = totalharga*1.1
+                totalpajak = harga_pajak1(totalharga)
                 kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
-                harga_akhir = kodekupon(kode, pajak)
+                harga_akhir = kodekupon(kode, totalpajak)
                 print("\n===================================")
                 print("===============N O T A=============")
                 print("========C A C A - R E S T O========")
