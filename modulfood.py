@@ -108,7 +108,7 @@ def programkasir():
                 entry = [i[1], jml_pesan,hargamenu]
                 listjmlpesan.append(entry)
                 print (listjmlpesan)
-                estimasi = (i[3])*jml_pesan
+                estimasi = int(i[3])*jml_pesan
                 
         if pilihanmenu == "1":
             match += 1
@@ -141,15 +141,22 @@ def programkasir():
             print("                Dana/Spay/Gopay  : 081328023385")
             choice = str(input(">> "))
             if choice == "1":
-                print("Silahkan bayar dengan uang pas")
+                print("------------------------------------")
+                print("Mohon untuk membayar dengan uang pas")
+                print("------------------------------------")
             elif choice == "2":
                 norek_resto = "123456789"
                 no_telepon = "081328023385"
                 totalbayar = harga_akhir                
                 if metode_transfer(norek_resto, no_telepon, totalbayar):
-                    print("Transaksi berhasil")
+                    print("--------------------")
+                    print(" Transaksi berhasil ")
+                    print("--------------------")
                 else:
-                    print("Transaksi gagal")
+                    print("-----------------")
+                    print(" Transaksi gagal ")
+                    print("-----------------")
+
 
         elif pilihanmenu == "2":
             match += 1
@@ -187,15 +194,21 @@ def programkasir():
                 print("                Dana/Spay/Gopay  : 081328023385")
                 choice = str(input(">> "))
                 if choice == "1":
-                    print("Silahkan bayar dengan uang pas")
+                    print("------------------------------------")
+                    print("Mohon untuk membayar dengan uang pas")
+                    print("------------------------------------")
                 elif choice == "2":
                     norek_resto = "123456789"
                     no_telepon = "081328023385"
                     totalbayar = harga_akhir                
                     if metode_transfer(norek_resto, no_telepon, totalbayar):
-                        print("Transaksi berhasil")
+                        print("--------------------")
+                        print(" Transaksi berhasil ")
+                        print("--------------------")
                     else:
-                        print("Transaksi gagal")
+                        print("-----------------")
+                        print(" Transaksi gagal ")
+                        print("-----------------")
 
             elif opsi == 2:
                 totalpajak = harga_pajak1(totalharga)
@@ -223,15 +236,21 @@ def programkasir():
                 print("                Dana/Spay/Gopay  : 081328023385")
                 choice = str(input(">> "))
                 if choice == "1":
-                    print("Silahkan bayar dengan uang pas")
+                    print("------------------------------------")
+                    print("Mohon untuk membayar dengan uang pas")
+                    print("------------------------------------")
                 elif choice == "2":
                     norek_resto = "123456789"
                     no_telepon = "081328023385"
                     totalbayar = harga_akhir                
                     if metode_transfer(norek_resto, no_telepon, totalbayar):
-                        print("Transaksi berhasil")
+                        print("--------------------")
+                        print(" Transaksi berhasil ")
+                        print("--------------------")
                     else:
-                        print("Transaksi gagal")
+                        print("-----------------")
+                        print(" Transaksi gagal ")
+                        print("-----------------")
 
             else:
                 print("Input tidak valid")
