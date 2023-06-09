@@ -32,6 +32,7 @@ def hitung_ongkir_menu(kecamatan, totalharga):
     return total_biaya
 
 def kodekupon(kode, totalharga):
+    global kupon 
     kupon = 0
     if kode == "caca0214":
         kupon = 5000
@@ -130,6 +131,7 @@ def programkasir():
             print("Jumlah orang :", orang)
             print("Harga menu   : ", totalharga)
             print("Pajak        : 10%")
+            print("Kupon        : ", kupon)
             print("Total        : Rp", harga_akhir)
             print("Silahkan melakukan pembayaran")
             print("====== Selamat Datang Kembali======")
@@ -156,7 +158,6 @@ def programkasir():
                     print("-----------------")
                     print(" Transaksi gagal ")
                     print("-----------------")
-
 
         elif pilihanmenu == "2":
             match += 1
@@ -197,6 +198,7 @@ def programkasir():
                     print("------------------------------------")
                     print("Mohon untuk membayar dengan uang pas")
                     print("------------------------------------")
+                    exit()
                 elif choice == "2":
                     norek_resto = "123456789"
                     no_telepon = "081328023385"
