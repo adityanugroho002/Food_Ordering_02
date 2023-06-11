@@ -17,8 +17,8 @@ def daftarmenu():
     print(table)
 
 def hitung_ongkir_menu(kecamatan, totalharga):
+    global ongkir
     ongkir = 0
-    
     if kecamatan == "jebres" or "banjarsari" or "laweyan" or "serengan" or "pasar kliwon":
         ongkir = 5000
     elif kecamatan == "mojosongo" or "grogol":
@@ -129,9 +129,9 @@ def programkasir():
                 print (pesanan)
             print("Nomor Meja   :", nomormeja)
             print("Jumlah orang :", orang)
-            print("Harga menu   : ", totalharga)
+            print("Harga menu   : Rp", totalharga)
             print("Pajak        : 10%")
-            print("Kupon        : ", kupon)
+            print("Kupon        : -Rp", kupon)
             print("Total        : Rp", harga_akhir)
             print("Silahkan melakukan pembayaran")
             print("====== Selamat Datang Kembali======")
@@ -146,6 +146,7 @@ def programkasir():
                 print("------------------------------------")
                 print("Mohon untuk membayar dengan uang pas")
                 print("------------------------------------")
+                exit()
             elif choice == "2":
                 norek_resto = "123456789"
                 no_telepon = "081328023385"
@@ -154,6 +155,7 @@ def programkasir():
                     print("--------------------")
                     print(" Transaksi berhasil ")
                     print("--------------------")
+                    exit()
                 else:
                     print("-----------------")
                     print(" Transaksi gagal ")
@@ -176,14 +178,17 @@ def programkasir():
                 print("============== N O T A ============")
                 print("======= C A C A - R E S T O =======")
                 print("===================================")
-                print("Nama     :", nama)
-                print("No WA    : +62", nomor_telepon)
-                print("Pesanan  :".format(len(listjmlpesan)))
+                print("Nama         :", nama)
+                print("No WA        : +62", nomor_telepon)
+                print("Alamat       : ", alamat)
+                print("Pesanan      :".format(len(listjmlpesan)))
                 for pesanan in listjmlpesan:
                     print (pesanan)
-                print("Alamat   : ", alamat)
-                print("Harga    : Rp", harga_akhir)
-                print("              Pajak 10%            ")
+                print("Harga Menu   : Rp", totalharga)
+                print("Ongkir       : Rp", ongkir)
+                print("Pajak        : 10%")
+                print("Kupon        : - Rp", kupon)
+                print("Total Harga  : Rp", harga_akhir)
                 print("Silahkan melakukan pembayaran")
                 print("====== Selamat Datang Kembali======")
                 print("===================================")
@@ -207,6 +212,7 @@ def programkasir():
                         print("--------------------")
                         print(" Transaksi berhasil ")
                         print("--------------------")
+                        exit()
                     else:
                         print("-----------------")
                         print(" Transaksi gagal ")
@@ -220,14 +226,16 @@ def programkasir():
                 print("====================N O T A======================")
                 print("=============C A C A - R E S T O=================")
                 print("=================================================")
-                print("Nama     :", nama)
-                print("No WA    : +62", nomor_telepon)
-                print("Pesanan  :".format(len(listjmlpesan)))
+                print("Nama         :", nama)
+                print("No WA        : +62", nomor_telepon)
+                print("Pesanan      :".format(len(listjmlpesan)))
                 for pesanan in listjmlpesan:
                     print (pesanan)
-                print("Harga    : Rp", harga_akhir)
+                print("Harga Menu   : Rp", totalharga)
+                print("pajak        : 10%")
+                print("Kupon        : -Rp", kupon)
+                print("Total Harga  : Rp", harga_akhir)
                 print(f"silahkan ambil pesanan anda dalam {estimasi} menit")
-                print("              Pajak 10%            ")
                 print("Pembayaran dilakukan secara tunai  ")
                 print("=========== Selamat Datang Kembali================")
                 print("==================================================")
@@ -241,6 +249,7 @@ def programkasir():
                     print("------------------------------------")
                     print("Mohon untuk membayar dengan uang pas")
                     print("------------------------------------")
+                    exit()
                 elif choice == "2":
                     norek_resto = "123456789"
                     no_telepon = "081328023385"
@@ -249,6 +258,7 @@ def programkasir():
                         print("--------------------")
                         print(" Transaksi berhasil ")
                         print("--------------------")
+                        exit()
                     else:
                         print("-----------------")
                         print(" Transaksi gagal ")
