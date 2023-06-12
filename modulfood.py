@@ -36,6 +36,20 @@ def baca_database():
         return database
     return database
 
+def pesan_nomor_meja():
+    global nomor_meja
+    database = baca_database()
+    nomor_meja = int(input("Masukkan nomor meja: "))
+    while nomor_meja in database or nomor_meja > 10:
+        if nomor_meja in database:
+            print("Nomor meja telah dipesan. Silakan pilih nomor meja lain.")
+        elif nomor_meja > 10:
+            print("Meja tidak tersedia.")
+        nomor_meja = int(input("Masukkan nomor meja: "))
+    database.append(nomor_meja)
+    database_meja(database)
+    print("Nomor meja berhasil dipesan.")
+
 def hitung_ongkir_menu(kecamatan, totalharga):
     global ongkir
     ongkir = 0
