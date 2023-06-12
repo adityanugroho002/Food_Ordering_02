@@ -1,6 +1,6 @@
 import csv
 from tabulate import tabulate
-import random
+import datetime
 
 namefile = 'daftar_menu.csv'
 
@@ -149,9 +149,11 @@ def programkasir():
             match += 1
             totalpajak = harga_pajak1(totalharga)
             orang = int(input("Jumlah orang: "))
-            nomormeja = random.randint(1,10)
+            pesan_nomor_meja()
             kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
             harga_akhir = kodekupon(kode, totalpajak)
+            tanggal = datetime.date.today()
+            tanggal_pesan = tanggal.strftime("%d/%m/%Y")
             nama_file = "data_struk.txt" 
             with open(nama_file, 'a') as file:
                 file.write("\n===================================\n")
@@ -182,7 +184,7 @@ def programkasir():
             print("Pesanan      :".format(len(listjmlpesan)))
             for pesanan in listjmlpesan:
                 print (pesanan)
-            print("Nomor Meja   :", nomormeja)
+            print("Nomor Meja   :", nomor_meja)
             print("Jumlah orang :", orang)
             print("Harga menu   : Rp", totalharga)
             print("Pajak        : 10%")
@@ -229,6 +231,8 @@ def programkasir():
                 totalpajak = harga_pajak2(biaya_total)
                 kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
                 harga_akhir = kodekupon(kode, totalpajak)
+                tanggal = datetime.date.today()
+                tanggal_pesan = tanggal.strftime("%d/%m/%Y")
                 nama_file = "data_struk.txt"
                 with open(nama_file, 'a') as file:
                     file.write("\n===================================\n")
@@ -299,6 +303,8 @@ def programkasir():
                 totalpajak = harga_pajak1(totalharga)
                 kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
                 harga_akhir = kodekupon(kode, totalpajak)
+                tanggal = datetime.date.today()
+                tanggal_pesan = tanggal.strftime("%d/%m/%Y")
                 nama_file = "data_struk.txt"
                 with open(nama_file, 'a') as file:
                     file.write("\n=================================================\n")
