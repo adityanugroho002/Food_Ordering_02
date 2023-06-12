@@ -16,6 +16,13 @@ def daftarmenu():
     table = tabulate(data[1:], headers=headers, tablefmt=tablefmt, numalign=numalign)
     print(table)
 
+def database_meja(database):
+    with open("data_meja.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["Nomor Meja"])  # Menulis header
+        for nomor_meja in database:
+            writer.writerow([nomor_meja])
+
 def hitung_ongkir_menu(kecamatan, totalharga):
     global ongkir
     ongkir = 0
