@@ -23,6 +23,19 @@ def database_meja(database):
         for nomor_meja in database:
             writer.writerow([nomor_meja])
 
+def baca_database():
+    database = []
+    try:
+        with open("data_meja.csv", "r") as file:
+            reader = csv.reader(file)
+            next(reader)  # Melompati baris header
+            for row in reader:
+                nomor_meja = int(row[0])
+                database.append(nomor_meja)
+    except FileNotFoundError:
+        return database
+    return database
+
 def hitung_ongkir_menu(kecamatan, totalharga):
     global ongkir
     ongkir = 0
