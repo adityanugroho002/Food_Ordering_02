@@ -1,0 +1,19 @@
+
+===================================
+============== N O T A ============
+======= C A C A - R E S T O =======
+===================================
+Tanggal      : 12/06/2023
+Nama         : Aditya Agung Nugroho
+No WA        : +62 81328023385
+Alamat       : Pucangsawit, Jebres, Surakarta
+Pesanan      : 
+['Nasi Ayam Dada', 1, 20000]['Es Teh', 1, 3000]
+Harga Menu   : Rp 23000
+Ongkir       : Rp 5000
+Pajak        : 10%
+Kupon        : - Rp 7000
+Total Harga  : Rp 23800.0
+Silahkan melakukan pembayaran
+====== Selamat Datang Kembali======
+===================================
