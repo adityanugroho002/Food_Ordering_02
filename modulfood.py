@@ -39,7 +39,12 @@ def baca_database():
 def pesan_nomor_meja():
     global nomor_meja
     database = baca_database()
-    nomor_meja = int(input("Masukkan nomor meja: "))
+    while True:
+        try:
+            nomor_meja = int(input("Masukkan nomor meja: "))
+            break
+        except ValueError:
+            print("input salah")
     while nomor_meja in database or nomor_meja > 10:
         if nomor_meja in database:
             print("Nomor meja telah dipesan. Silakan pilih nomor meja lain.")
@@ -48,20 +53,21 @@ def pesan_nomor_meja():
         nomor_meja = int(input("Masukkan nomor meja: "))
     database.append(nomor_meja)
     database_meja(database)
-    print("Nomor meja berhasil dipesan.")
+    print("Nomor meja berhasil dipesan.")
 
 def hitung_ongkir_menu(kecamatan, totalharga):
     global ongkir
     ongkir = 0
-    if kecamatan == "jebres" or "banjarsari" or "laweyan" or "serengan" or "pasar kliwon":
+    kecamatan = kecamatan.lower()
+    if kecamatan == "jebres" or kecamatan =="banjarsari" or kecamatan == "laweyan" or kecamatan == "serengan" or kecamatan == "pasar kliwon":
         ongkir = 5000
-    elif kecamatan == "mojosongo" or "grogol":
+    elif kecamatan == "mojosongo" or kecamatan == "grogol":
         ongkir = 7000
-    elif kecamatan == "colomadu" or "ngemplak":
+    elif kecamatan == "colomadu" or kecamatan == "ngemplak":
         ongkir = 10000
     else:
-        print("kecamatan tidak valid.")
-    
+        print("Kami Hanya Melayani Delivery Area Solo")
+        ongkir == 0
     total_biaya = ongkir + totalharga
     return total_biaya
 
@@ -132,11 +138,12 @@ def programkasir():
         for i in datamenu:
             if pilihanmenu == i[0]:
                 match += 1
-                try:
-                    jml_pesan = int(input("Jumlah dipesan: "))
-                except ValueError:
-                    print ("Input salah. Masukkan jumlah pesanan")
-                    jml_pesan = int(input("Jumlah dipesan: "))
+                while True :
+                    try:
+                        jml_pesan = int(input("Jumlah dipesan: "))
+                        break
+                    except ValueError:
+                        print ("Input salah. Masukkan jumlah pesanan")
                 hargamenu = int(i[2])*jml_pesan
                 totalharga += hargamenu
                 print (i[1],"\t Rp",hargamenu)
@@ -148,7 +155,12 @@ def programkasir():
         if pilihanmenu == "1":
             match += 1
             totalpajak = harga_pajak1(totalharga)
-            orang = int(input("Jumlah orang: "))
+            while True:
+                try:
+                    orang = int(input("Jumlah orang: "))
+                    break
+                except ValueError:
+                    print("Input salah. Masukkan jumlah orang")
             pesan_nomor_meja()
             kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
             harga_akhir = kodekupon(kode, totalpajak)
@@ -165,8 +177,8 @@ def programkasir():
                 file.write("No WA        : +62 {}\n".format(nomor_telepon))
                 file.write("Pesanan      : \n".format(len(listjmlpesan)))
                 for pesanan in listjmlpesan:
-                    file.write(str(pesanan))
-                file.write("\nNomor Meja   : {}\n".format(nomor_meja))
+                    file.write(str(pesanan) + "\n")
+                file.write("Nomor Meja   : {}\n".format(nomor_meja))
                 file.write("Jumlah orang : {}\n".format(orang))
                 file.write("Harga menu   : Rp {}\n".format(totalharga))
                 file.write("Pajak        : 10%\n")
@@ -221,9 +233,14 @@ def programkasir():
         elif pilihanmenu == "2":
             match += 1
             print("""Silahkan Pilih Menu Berikut
-            Pilih [1] untuk DELIVERY
+            Pilih [1] untuk DELIVERY Only Area Solo
             Pilih [2] untuk TAKE AWAY""")
-            opsi = int(input("[1] atau [2]: "))
+            while True:
+                try:
+                    opsi = int(input("[1] atau [2]: "))
+                    break
+                except ValueError:
+                    print('Input salah')
             if opsi == 1:
                 alamat = str(input('Input alamat lengkap: '))
                 kecamatan = str(input("input kecamatan: "))
@@ -273,7 +290,6 @@ def programkasir():
                 print("Silahkan melakukan pembayaran")
                 print("====== Selamat Datang Kembali======")
                 print("===================================")
-                kecamatan.lower
                 print("")
                 print("Silahkan pilih Metode Pembayaran")
                 print("[1] Cash               ")

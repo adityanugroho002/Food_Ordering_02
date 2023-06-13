@@ -2,8 +2,8 @@ import modulfood as mf
 
 while True:
     print("========================================================")
-    print("=====================SELAMAT DATANG=====================")
-    print("=======================CACA RESTO=======================")
+    print("==================== SELAMAT DATANG ====================")
+    print("====================== CACA RESTO ======================")
     print("========================================================")
     print("=======Jl. Utara Pasar Besar No.34, Sudiroprajan,=======")
     print("========Kec. Jebres, Kota Surakarta, Jawa Tengah========")
