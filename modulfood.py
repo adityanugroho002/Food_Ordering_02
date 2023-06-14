@@ -12,14 +12,15 @@ def daftarmenu():
     headers = data[0]
     tablefmt = "grid"
     numalign = "center"
-
+    for row in data:
+        del row[3]
     table = tabulate(data[1:], headers=headers, tablefmt=tablefmt, numalign=numalign)
     print(table)
 
 def database_meja(database):
     with open("data_meja.csv", "w", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["Nomor Meja"])  # Menulis header
+        writer.writerow(["Nomor Meja"])
         for nomor_meja in database:
             writer.writerow([nomor_meja])
 
@@ -54,6 +55,12 @@ def pesan_nomor_meja():
     database.append(nomor_meja)
     database_meja(database)
     print("Nomor meja berhasil dipesan.")
+
+def tampilkan_nomor_meja_tersedia():
+    database = baca_database()
+    nomor_meja_tersedia = [nomor for nomor in range(1, 11) if nomor not in database]
+    print("Nomor meja yang tersedia: ")
+    print(nomor_meja_tersedia)
 
 def hitung_ongkir_menu(kecamatan, totalharga):
     global ongkir
@@ -122,14 +129,13 @@ def programkasir():
         except ValueError:
             print("Input harus berupa angka. Silakan coba lagi.")
     print("Nomor telepon yang dimasukkan:", nomor_telepon)
-
     daftarmenu()
     totalharga = 0
     listjmlpesan= []
     print ("")
     print ("Masukkan KODE berikut pada 'Kode Makanan dipesan' apabila selesai memilih menu:")
     print ("Input (1) untuk DINE IN")
-    print ("Input (2) untuk DELIVERY/TAKE AWAY")
+    print ("Input (2) untuk TAKE AWAY")
     print ("Input (3) untuk Keluar dari Program Kasir")
     print ("")
     pilihanmenu = input("Kode makanan dipesan: ")
@@ -151,7 +157,8 @@ def programkasir():
                 listjmlpesan.append(entry)
                 print (listjmlpesan)
                 estimasi = int(i[3])*jml_pesan
-                
+
+        #Unuk pilihan menu DINE IN        
         if pilihanmenu == "1":
             match += 1
             totalpajak = harga_pajak1(totalharga)
@@ -161,6 +168,7 @@ def programkasir():
                     break
                 except ValueError:
                     print("Input salah. Masukkan jumlah orang")
+            tampilkan_nomor_meja_tersedia()
             pesan_nomor_meja()
             kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
             harga_akhir = kodekupon(kode, totalpajak)
@@ -169,8 +177,8 @@ def programkasir():
             nama_file = "data_struk.txt" 
             with open(nama_file, 'a') as file:
                 file.write("\n===================================\n")
-                file.write("===============N O T A=============\n")
-                file.write("========C A C A - R E S T O========\n")
+                file.write("============== N O T A ============\n")
+                file.write("======= C A C A - R E S T O =======\n")
                 file.write("===================================\n")
                 file.write("Tanggal      : {}\n".format(tanggal_pesan))
                 file.write("Nama         : {}\n".format(nama))
@@ -182,14 +190,14 @@ def programkasir():
                 file.write("Jumlah orang : {}\n".format(orang))
                 file.write("Harga menu   : Rp {}\n".format(totalharga))
                 file.write("Pajak        : 10%\n")
-                file.write("Kupon        : -Rp {}\n".format(kupon))
+                file.write("Kupon        : Rp {}\n".format(kupon))
                 file.write("Total        : Rp {}\n".format(harga_akhir))
-                file.write("Silahkan melakukan pembayaran\n")
-                file.write("====== Selamat Datang Kembali======\n")
+                file.write("====== Selamat Datang Kembali =====\n")
                 file.write("===================================\n")
+
             print("\n===================================")
-            print("===============N O T A=============")
-            print("========C A C A - R E S T O========")
+            print("============== N O T A ============")
+            print("======= C A C A - R E S T O =======")
             print("===================================")
             print("Nama         :", nama)
             print("No WA        : +62", nomor_telepon)
@@ -200,10 +208,9 @@ def programkasir():
             print("Jumlah orang :", orang)
             print("Harga menu   : Rp", totalharga)
             print("Pajak        : 10%")
-            print("Kupon        : -Rp", kupon)
+            print("Kupon        : Rp", kupon)
             print("Total        : Rp", harga_akhir)
-            print("Silahkan melakukan pembayaran")
-            print("====== Selamat Datang Kembali======")
+            print("====== Selamat Datang Kembali =====")
             print("===================================")
             print("")
             print("Silahkan pilih Metode Pembayaran")
@@ -230,17 +237,20 @@ def programkasir():
                     print(" Transaksi gagal ")
                     print("-----------------")
 
+        #Untuk pilihan menu TAKE AWAY
         elif pilihanmenu == "2":
             match += 1
-            print("""Silahkan Pilih Menu Berikut
-            Pilih [1] untuk DELIVERY Only Area Solo
-            Pilih [2] untuk TAKE AWAY""")
+            print("""Silahkan Pilih Menu Berikut 
+            Pilih [1] untuk DELIVERY (Only Area Solo)
+            Pilih [2] untuk NON DELIVERY""")
             while True:
                 try:
                     opsi = int(input("[1] atau [2]: "))
                     break
                 except ValueError:
                     print('Input salah')
+            
+            #Opsi DELIVERY
             if opsi == 1:
                 alamat = str(input('Input alamat lengkap: '))
                 kecamatan = str(input("input kecamatan: "))
@@ -266,9 +276,8 @@ def programkasir():
                     file.write("\nHarga Menu   : Rp {}\n".format(totalharga))
                     file.write("Ongkir       : Rp {}\n".format(ongkir))
                     file.write("Pajak        : 10%\n")
-                    file.write("Kupon        : - Rp {}\n".format(kupon))
+                    file.write("Kupon        : Rp {}\n".format(kupon))
                     file.write("Total Harga  : Rp {}\n".format(harga_akhir))
-                    file.write("Silahkan melakukan pembayaran\n")
                     file.write("====== Selamat Datang Kembali======\n")
                     file.write("===================================\n")
                     
@@ -285,9 +294,8 @@ def programkasir():
                 print("Harga Menu   : Rp", totalharga)
                 print("Ongkir       : Rp", ongkir)
                 print("Pajak        : 10%")
-                print("Kupon        : - Rp", kupon)
+                print("Kupon        : Rp", kupon)
                 print("Total Harga  : Rp", harga_akhir)
-                print("Silahkan melakukan pembayaran")
                 print("====== Selamat Datang Kembali======")
                 print("===================================")
                 print("")
@@ -315,6 +323,7 @@ def programkasir():
                         print(" Transaksi gagal ")
                         print("-----------------")
 
+            #Opsi NON DELIVERY
             elif opsi == 2:
                 totalpajak = harga_pajak1(totalharga)
                 kode = str(input("KODE KUPON (input 0 jika tidak ada): "))
@@ -324,7 +333,7 @@ def programkasir():
                 nama_file = "data_struk.txt"
                 with open(nama_file, 'a') as file:
                     file.write("\n=================================================\n")
-                    file.write("====================N O T A======================\n")
+                    file.write("=================== N O T A =====================\n")
                     file.write("=============C A C A - R E S T O=================\n")
                     file.write("=================================================\n")
                     file.write("Tanggal      : {}\n".format(tanggal_pesan))
@@ -332,18 +341,20 @@ def programkasir():
                     file.write("No WA        : +62 {}\n".format(nomor_telepon))
                     file.write("Pesanan      : \n".format(len(listjmlpesan)))
                     for pesanan in listjmlpesan:
-                        file.write(str(pesanan))
+                        file.write(str(pesanan) + "\n")
                     file.write("\nHarga Menu   : Rp {}\n".format(totalharga))
                     file.write("pajak        : 10%\n")
-                    file.write("Kupon        : -Rp {}\n".format(kupon))
+                    file.write("Kupon        : Rp {}\n".format(kupon))
                     file.write("Total Harga  : Rp {}\n".format(harga_akhir))
+                    file.write("--------------------------------------------------\n")
                     file.write(f"silahkan ambil pesanan anda dalam {estimasi} menit\n")
-                    file.write("Pembayaran dilakukan secara tunai\n")
+                    file.write("--------------------------------------------------\n")
                     file.write("=========== Selamat Datang Kembali================\n")
                     file.write("==================================================\n")
+
                 print("\n=================================================")
-                print("====================N O T A======================")
-                print("=============C A C A - R E S T O=================")
+                print("=================== N O T A =====================")
+                print("============ C A C A - R E S T O ================")
                 print("=================================================")
                 print("Nama         :", nama)
                 print("No WA        : +62", nomor_telepon)
@@ -352,11 +363,12 @@ def programkasir():
                     print (pesanan)
                 print("Harga Menu   : Rp", totalharga)
                 print("pajak        : 10%")
-                print("Kupon        : -Rp", kupon)
+                print("Kupon        : Rp", kupon)
                 print("Total Harga  : Rp", harga_akhir)
+                print("--------------------------------------------------")
                 print(f"silahkan ambil pesanan anda dalam {estimasi} menit")
-                print("Pembayaran dilakukan secara tunai  ")
-                print("=========== Selamat Datang Kembali================")
+                print("--------------------------------------------------")
+                print("=========== Selamat Datang Kembali ===============")
                 print("==================================================")
                 print("")
                 print("Silahkan pilih Metode Pembayaran")

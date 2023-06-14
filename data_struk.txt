@@ -1,19 +1,19 @@
+
 ===================================
-===============N O T A=============
-========C A C A - R E S T O========
+============== N O T A ============
+======= C A C A - R E S T O =======
 ===================================
-Tanggal      : 13/06/2023
-Nama         : Aditya Agung N
-No WA        : +62 8125376890
+Tanggal      : 14/06/2023
+Nama         : Aditya Agung
+No WA        : +62 1827182
 Pesanan      : 
 ['Nasi Ayam Dada', 1, 20000]
 ['Es Milo', 1, 7000]
-Nomor Meja   : 5
-Jumlah orang : 2
+Nomor Meja   : 1
+Jumlah orang : 4
 Harga menu   : Rp 27000
 Pajak        : 10%
-Kupon        : -Rp 5000
-Total        : Rp 24700.0
-Silahkan melakukan pembayaran
-====== Selamat Datang Kembali======
+Kupon        : Rp 7000
+Total        : Rp 22700.0
+====== Selamat Datang Kembali =====
 ===================================
