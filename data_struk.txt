@@ -17,3 +17,100 @@ Kupon        : Rp 7000
 Total        : Rp 22700.0
 ====== Selamat Datang Kembali =====
 ===================================
+
+===================================
+============== N O T A ============
+======= C A C A - R E S T O =======
+===================================
+Tanggal      : 15/06/2023
+Nama         : Sidiq baik
+No WA        : +62 17286175216
+Pesanan      : 
+['Nasi Ayam Dada', 1, 20000]
+['Es Teh', 1, 3000]
+Nomor Meja   : 4
+Jumlah orang : 2
+Harga menu   : Rp 23000
+Pajak        : 10%
+Kupon        : Rp 7000
+Total        : Rp 18300.0
+====== Selamat Datang Kembali =====
+===================================
+
+===================================
+============== N O T A ============
+======= C A C A - R E S T O =======
+===================================
+Tanggal      : 16/06/2023
+Nama         : sdkh
+No WA        : +62 1287
+Pesanan      : 
+['Nasi Ayam Dada', 2, 40000]
+Nomor Meja   : 3
+Jumlah orang : 4
+Harga menu   : Rp 40000
+Pajak        : 10%
+Kupon        : Rp 0
+Total        : Rp 44000.0
+====== Selamat Datang Kembali =====
+===================================
+
+===================================
+============== N O T A ============
+======= C A C A - R E S T O =======
+===================================
+Tanggal      : 16/06/2023
+Nama         : Nona Tua
+No WA        : +62 84126482917
+Pesanan      : 
+['Nasi Ayam Dada', 1, 20000]
+['Nasi Ayam Paha Atas', 2, 40000]
+['Es Teh', 3, 9000]
+Nomor Meja   : 3
+Jumlah orang : 3
+Harga menu   : Rp 69000
+Pajak        : 10%
+Kupon        : Rp 7000
+Total        : Rp 68900.0
+====== Selamat Datang Kembali =====
+===================================
+
+===================================
+============== N O T A ============
+======= C A C A - R E S T O =======
+===================================
+Tanggal      : 16/06/2023
+Nama         : Chelsea
+No WA        : +62 81725290476
+Alamat       : Jebres, Surakarta
+Pesanan      : 
+['Nasi Ayam Paha Bawah', 1, 15000]
+['Nasi Ayam Sayap', 1, 15000]
+['Cola', 2, 14000]
+Harga Menu   : Rp 44000
+Ongkir       : Rp 5000
+Pajak        : 10%
+Kupon        : Rp 5000
+Total Harga  : Rp 48900.0
+====== Selamat Datang Kembali======
+===================================
+
+============================================
+=================== N O T A ================
+=============C A C A - R E S T O============
+============================================
+Tanggal      : 17/06/2023
+Nama         : Messi
+No WA        : +62 82081738111
+Pesanan      : 
+['Burger', 2, 46000]
+['Es Milo', 2, 14000]
+Harga Menu   : Rp 60000
+pajak        : 10%
+Kupon        : Rp 7000
+Total Harga  : Rp 59000.0
+---------------------------------------------
+silahkan ambil pesanan anda dalam 16 menit
+---------------------------------------------
+=========== Selamat Datang Kembali ==========
+=============================================
