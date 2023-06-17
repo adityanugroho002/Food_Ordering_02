@@ -3,7 +3,6 @@ from tabulate import tabulate
 import datetime
 
 namefile = 'daftar_menu.csv'
-
 def daftarmenu():
     data = []
     with open (namefile) as filecsv:
